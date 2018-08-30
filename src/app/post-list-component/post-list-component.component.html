@@ -1,0 +1,25 @@
+
+<!--Composant  d'affichage du post-->
+<li [ngClass]="{'list-group-item': true,
+'list-group-item-success': loveIts > 0,
+'list-group-item-danger': loveIts < 0,
+'list-group-item-light': loveIts == 0}">
+    <div class="d-flex w-100 justify-content-between">
+        <h3>{{ title }}</h3>
+        <h5 style="text-align:right; color: grey;">
+            <small>
+                <i> {{ created_at | date: 'd/MM/yyyy, H:mm a' }} </i>
+            </small>
+        </h5>
+    </div>
+    <div>
+        <p class="mb-1">{{ content }}</p>
+        <button class="btn btn-success"
+            (click)="onLoveIt()">Love it</button>
+        <button class="btn btn-danger"
+            (click)="onDontLoveIt()">Don't Love it</button>
+        <div style="text-align: right" >
+            <span class="badge badge-light badge-pill">{{ loveIts }}</span>
+        </div>
+    </div>
+</li>
